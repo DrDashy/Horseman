@@ -26,7 +26,17 @@ class Menu extends Window {
     /** Number of the last level */
     private int m_levelMax;
 
-    /** Constructor */
+    /** 
+     * Constructor Menu
+     *
+     * <p>
+     * When the menu is created, we initialize the window.
+     * All pictures are loaded, add we set the music.
+     * We also initialize the level choose by default, which is the level 1.
+     * </p>
+     *
+     * @see Window
+     */
     Menu () { 
         super();
         setMusic("music_menu");
