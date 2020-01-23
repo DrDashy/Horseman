@@ -1,5 +1,5 @@
 # Horseman
-Video game : Horseman can't fly
+Video game : Horseman can't fly by Axel DUCUING and Théo LERBEIL
 
 # What is it :
   This game was made for a project ask on my second yars of my University Tech Degree.
