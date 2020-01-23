@@ -24,3 +24,12 @@ Then I wil try to evolve the game to add more features :
   - diversify the level design
   - add sounds (music level, sound effect...)
   - randomize the environment level
+
+Run the game in Processing :
+  - Download processing "https://processing.org/download/"
+  - In processing you have to download libraries : Tools --> add tools --> Libaries --> Search for "Minim" --> Install
+  - Open Project
+  - Run the game
+  
+Run the game with executable :
+  - First version playable comming soon...
