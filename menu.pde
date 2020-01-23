@@ -1,16 +1,32 @@
 /**
- * Menu principal
- * m_pics : array of all the menu pics
- * m_actualLevel : actual level
- * m_music : music of the menu
+ * <b>Menu represent a class for the main menu.<b>
+ * <p>
+ * Only one instance of menu is created.
+ * the member of menu is characterised by :
+ * <ul>
+ * <li>A list of all picture of the menu.</li>
+ * <li>The number of the choosen level (can be 1 to 9).</li>
+ * <li>The number of the minimum level : 1.</li>
+ * <li>The number of the maximum level : 9.</li>
+ * </ul>
+ * </p>
+ *
+ * @author Axel DUCUING
+ * @version 1.0.0
+ * @since 1.0.0
  */
 class Menu extends Window {
-
+    
+    /** Array of all the menu pics */
     private PImage[] m_pics;
+    /** Actual level choose */
     private int m_actualLevel;
+    /** Number of the first level */
     private int m_levelMin;
+    /** Number of the last level */
     private int m_levelMax;
 
+    /** Constructor */
     Menu () { 
         super();
         setMusic("music_menu");
@@ -29,6 +45,10 @@ class Menu extends Window {
         m_actualLevel = m_levelMin;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public int getLevelChoose() {
         return m_actualLevel;
     }
