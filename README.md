@@ -29,8 +29,8 @@ Video game : Horseman can't fly by Axel DUCUING and Théo LERBEIL
     
   I also want to know something, when we created the game, we were having a big issue.  
   Our player was one pixel more above the platform collider for each platform passed.     
-  And to get rid of this bug, I end up with this calcul to finnaly have the perfect player position matchess with the platform collider :   
-  Y = Plateform.ArrayPlateformY[i] - 137 + ( i * 1.4 ) - ( Plateform.NumberPlateform + ( 1.4 * 2 ) );  
+  And to get rid of this bug, I end up with this calcul to finnaly have the perfect player position matched with the platform collider :   
+  (Player) Y = Plateform.ArrayPlateformY[i] - 137 + ( i * 1.4 ) - ( Plateform.NumberPlateform + ( 1.4 * 2 ) );  
   PS : it actually work Oo'
     
 # In progress :
