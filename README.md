@@ -6,17 +6,17 @@ Video game : [Horseman can't fly] by Axel DUCUING and Théo LERBEIL
   The goal was to create a video game using the software “Processing”, with a deadline of one week.
   
   For that, we were two :
-    ⋅⋅* Axel DUCUING, as a programmer
-    ⋅⋅* Théo LERBEIL, as a graphic designer, but also as support programmer
+    * Axel DUCUING, as a programmer
+    * Théo LERBEIL, as a graphic designer, but also as support programmer
   
   The game is a simple 2D scrolling game where you can only jump and try to avoid the traps laid on the path to the level's end.
   There is nine levels and a boss at the end of the game.
   
   The game was ready for the deadline, but some problems remained and couldn't be solved at that time :
-    ⋅⋅* The player can “air jump” after dropping from the platform
-    ⋅⋅* The game did not work for all computer screens because of the difference in screens' resolutions. 
-    ⋅⋅* The game has a lot of FPS drop
-    ⋅⋅* We cannot skip the cinematic at the boss (so you had to wait at least 30 seconds every time)
+    * The player can “air jump” after dropping from the platform
+    * The game did not work for all computer screens because of the difference in screens' resolutions. 
+    * The game has a lot of FPS drop
+    * We cannot skip the cinematic at the boss (so you had to wait at least 30 seconds every time)
 
 ## What I want to do :
   Today, I decided to redo this game, and make it better, with the help of everything I have learned until now..
@@ -25,9 +25,9 @@ Video game : [Horseman can't fly] by Axel DUCUING and Théo LERBEIL
   correct all the problems announced above.
 
   Then I will try to evolve the game by adding more features :
-    ⋅⋅* diversify the level design
-    ⋅⋅* work on the sound-design (music level, sound effect...)
-    ⋅⋅* randomize the level's environment
+    * diversify the level design
+    * work on the sound-design (music level, sound effect...)
+    * randomize the level's environment
     
   There is also one more reason for me wanting to redo this game.
   Indeed, at some point of this game's conception, we ran into a problem.
@@ -43,9 +43,9 @@ Video game : [Horseman can't fly] by Axel DUCUING and Théo LERBEIL
   This, is the biggest reason for my wanting to redo this game.
     
 ## In progress :
-  ⋅⋅* Randomize the level's environment
-  ⋅⋅* Add horizontal parallax
-  ⋅⋅* Add Javadoc in all class and function
+  * Randomize the level's environment
+  * Add horizontal parallax
+  * Add Javadoc in all class and function
 
 ## Run the game in Processing :
   1. [Download processing](https://processing.org/download/)
@@ -54,4 +54,4 @@ Video game : [Horseman can't fly] by Axel DUCUING and Théo LERBEIL
   4. Run the game
   
 ## Run the game with executable :
-  ⋅⋅* First playable version coming soon...
+  * First playable version coming soon...
