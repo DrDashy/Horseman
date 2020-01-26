@@ -5,18 +5,18 @@ Video game : [Horseman can't fly] by Axel DUCUING and Théo LERBEIL
   This game was made as a homework on my second year of my University Tech Degree.
   The goal was to create a video game using the software “Processing”, with a deadline of one week.
   
-  For that, we were two :
-    * Axel DUCUING, as a programmer
-    * Théo LERBEIL, as a graphic designer, but also as support programmer
+  For that, we were two :  
+    1. Axel DUCUING, as a programmer
+    2. Théo LERBEIL, as a graphic designer, but also as support programmer
   
   The game is a simple 2D scrolling game where you can only jump and try to avoid the traps laid on the path to the level's end.
   There is nine levels and a boss at the end of the game.
   
-  The game was ready for the deadline, but some problems remained and couldn't be solved at that time :
-    * The player can “air jump” after dropping from the platform
-    * The game did not work for all computer screens because of the difference in screens' resolutions. 
-    * The game has a lot of FPS drop
-    * We cannot skip the cinematic at the boss (so you had to wait at least 30 seconds every time)
+  The game was ready for the deadline, but some problems remained and couldn't be solved at that time :  
+    1. The player can “air jump” after dropping from the platform
+    2. The game did not work for all computer screens because of the difference in screens' resolutions. 
+    3. The game has a lot of FPS drop
+    4. We cannot skip the cinematic at the boss (so you had to wait at least 30 seconds every time)
 
 ## What I want to do :
   Today, I decided to redo this game, and make it better, with the help of everything I have learned until now..
@@ -24,10 +24,10 @@ Video game : [Horseman can't fly] by Axel DUCUING and Théo LERBEIL
   First, I'll try to recode it in a more proper and tidy manner (like by using object-oriented programming), and also try to    
   correct all the problems announced above.
 
-  Then I will try to evolve the game by adding more features :
-    * diversify the level design
-    * work on the sound-design (music level, sound effect...)
-    * randomize the level's environment
+  Then I will try to evolve the game by adding more features :  
+    1. diversify the level design
+    2. work on the sound-design (music level, sound effect...)
+    3. randomize the level's environment
     
   There is also one more reason for me wanting to redo this game.
   Indeed, at some point of this game's conception, we ran into a problem.
