@@ -44,7 +44,7 @@ This, is the biggest reason for my wanting to redo this game.
     
 ## In progress :
   * Randomize the level's environment
-  * Add horizontal parallax
+  * Add camera to follow player moves
   * Add Javadoc in all class and function
 
 ## Run the game in Processing :
