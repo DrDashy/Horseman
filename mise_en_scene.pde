@@ -228,6 +228,9 @@ public class MiseEnScene {
         
         for (Cloud cloud : m_tabCloud) {
             cloud.draw();
+            // Clouds always move to the left even if the player is not moving
+            cloud.m_move.MoveLeft();
+            cloud.parallaxLeft();
         }
         
         for (Isle isle : m_tabIsle) {
