@@ -43,7 +43,6 @@ The problem is: to this day, I do not know how I came up with this line of code,
 This, is the biggest reason for my wanting to redo this game.
     
 ## In progress :
-  * Randomize the level's environment
   * Add camera to follow player moves
   * Add Javadoc in all class and function
 
