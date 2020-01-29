@@ -47,19 +47,68 @@ BDD[] datas_plateform = {
     new BDD(nameDecors.PLATEFORM, "plateform/little_plateform2", new Color())
 };
 
-
+/**
+ * <b>Class of all datas for every decor.<b>
+ * <p>
+ * The data is characterised by :
+ * <ul>
+ * <li>Decor name.</li>
+ * <li>Url of the pic.</li>
+ * <li>Color for tint the picture.</li>
+ * <li>Moving speed.</li>
+ * <li>X position.</li>
+ * <li>Y position.</li>
+ * <li>Width of the pic.</li>
+ * <li>Heigth of the pic.</li>
+ * </ul>
+ * </p>
+ *
+ * @author Axel DUCUING
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class BDD {
     
+    /** Decor name */
     private nameDecors ND;
+    /** Url of the pic */
     public String URL;
+    /** Color for tint the picture */
     public Color COLOR;
+    /** Moving speed */
     public float SPEED;
+    /** X position */
     public float X;
+    /** Y position */
     public float Y;
+    /** Width of the pic */
     public float WIDTH;
+    /** Heigth of the pic */
     public float HEIGHT;
     
-    // Contructor
+    /** 
+     * Constructor Bdd
+     *
+     * <p>
+     * When the bdd is created, we initialize the basic settings :
+     * <ul>
+     * <li>Name of the decor</li>
+     * <li>Url of the pic</li>
+     * <li>Color for the tint</li>
+     * </ul>
+     * </p>
+     *
+     * @param nD : Name of the decor
+     * @param namePic : Url of the pic
+     * @param C : Color for the tint
+     *
+     * @see nameDecors
+     * @see datas_background
+     * @see datas_mountain
+     * @see datas_cloud
+     * @see datas_isle
+     * @see datas_plateform
+     */
     BDD(nameDecors nD, String namePic, Color C) {
         ND = nD;
         URL = "./data/decors/" + namePic + ".png";
@@ -67,7 +116,18 @@ public class BDD {
     }
     
     /**
-     * 
+     * Update settings
+     *
+     * <p>
+     * For witch decor is choosen, we initialize the decor settings :
+     * <ul>
+     * <li>Moving speed.</li>
+     * <li>X position.</li>
+     * <li>Y position.</li>
+     * <li>Width of the pic.</li>
+     * <li>Heigth of the pic.</li>
+     * </ul>
+     * </p>
      */
     public void SetInformations() {
         if (ND == nameDecors.BACKGROUND) {
