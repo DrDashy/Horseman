@@ -45,6 +45,7 @@ public class MiseEnScene {
     
     // Initialize background
     private void setBackground(int Type) {
+        datas_background[Type].SetInformations();
         m_background = new Background(datas_background[Type]);
     }
     
@@ -52,6 +53,7 @@ public class MiseEnScene {
     private void setMountain(int Type) {
         int tempPos = 0;
         for (int i = 0; i < m_nbMountain; i++) {
+            datas_mountain[Type].SetInformations();
             m_tabMountain.add(new Mountain(datas_mountain[Type]));
             // Initialize position
             m_tabMountain.get(i).m_move.m_coord.setX(tempPos);
@@ -61,8 +63,9 @@ public class MiseEnScene {
     }
     
     // Initialize all clouds
-    private void setClouds(int Type) {
+    private void setClouds(int Type) { //<>//
         for (int i = 0; i < m_nbCloud; i++) {
+            datas_cloud[Type].SetInformations();
             m_tabCloud.add(new Cloud(datas_cloud[Type]));
         }
     }
@@ -83,8 +86,10 @@ public class MiseEnScene {
                 type = 3;    
             }
             if (Type != 4) {
+                datas_isle[type].SetInformations();
                 m_tabIsle.add(new Isle(datas_isle[type]));
             } else {
+                datas_isle[type*2].SetInformations();
                 m_tabIsle.add(new Isle(datas_isle[type*2]));   
             }
             // Initialize position
@@ -102,6 +107,7 @@ public class MiseEnScene {
         float tempPosY = random( (height - height/4), (height - height/10) );
         for (int i = 0; i < m_nbPlateform; i++) {
             int typePlateform = (int) random(0, 3);
+            datas_plateform[typePlateform].SetInformations();
             m_tabPlateform.add(new Plateform(datas_plateform[typePlateform]));
             // Initialize position
             m_tabPlateform.get(i).m_move.m_coord.setX(tempPosX);
@@ -115,7 +121,7 @@ public class MiseEnScene {
     
     public void resetDecorsMenu(int Type) {
         // Clear all ArrayList
-        m_tabMountain.clear();
+        m_tabMountain.clear(); //<>//
         m_tabCloud.clear();
         // Initialize Decors
         setBackground(Type);

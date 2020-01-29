@@ -50,6 +50,7 @@ BDD[] datas_plateform = {
 
 public class BDD {
     
+    private nameDecors ND;
     public String URL;
     public Color COLOR;
     public float SPEED;
@@ -58,41 +59,48 @@ public class BDD {
     public float WIDTH;
     public float HEIGHT;
     
-    // Contructor Background - Mountain - Cloud
+    // Contructor
     BDD(nameDecors nD, String namePic, Color C) {
+        ND = nD;
         URL = "./data/decors/" + namePic + ".png";
-        COLOR = C;  
-        if (nD == nameDecors.BACKGROUND) {
+        COLOR = C;   //<>//
+    }
+    
+    /**
+     * 
+     */
+    public void SetInformations() {
+        if (ND == nameDecors.BACKGROUND) {
             SPEED = 0;
             X = 0;
             Y = 0;
             WIDTH = width;
             HEIGHT = height;
-        } else if (nD == nameDecors.MOUNTAIN) {
+        } else if (ND == nameDecors.MOUNTAIN) {
             SPEED = 2;
             X = 0;
             Y = 0;
             WIDTH = 0;
             HEIGHT = 0;
-        } else if (nD == nameDecors.CLOUD) {  
+        } else if (ND == nameDecors.CLOUD) {  
             SPEED = 5;
             X = random(0, width*2);
             Y = random(0, height/2);  
             WIDTH = 0;
             HEIGHT = 0;
-        } else if (nD == nameDecors.ISLE) {  
+        } else if (ND == nameDecors.ISLE) {  
             SPEED = 8;
             X = random(0, width/6);
             Y = random(height/10*2, height/10*5); 
             WIDTH = 0;
             HEIGHT = 0;
-        } else if (nD == nameDecors.PLATEFORM) {  
+        } else if (ND == nameDecors.PLATEFORM) {  
             SPEED = 5;
             X = 50;
             Y = random( (height - height/4), (height - height/10) );  
             WIDTH = 0;
             HEIGHT = 0;
-        }
+        }   
     }
     
 }
