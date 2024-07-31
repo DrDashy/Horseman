@@ -1,75 +1,116 @@
-/**
- * Game
- */
-class Game extends Window {
+public class Game {
     
-    private Player m_player;
+    private Background backgroundMorning;
+    private Background backgroundSunny;
+    private Background backgroundSunset;
+    private Background backgroundNight;
+    private Background backgroundBloodMoon;
+    private Background[] backgroundList = new Background[5];
+    private Cloud[] couldList = new Cloud[5];
 
-    Game () {
-        super();
-        m_player = new Player();
+    public Menu _menu;
+    
+    Game() throws GameException {
+        // Initialize background images
+        backgroundMorning = new Background("morning");
+        backgroundSunny = new Background("sunny");
+        backgroundSunset = new Background("sunset");
+        backgroundNight = new Background("night");
+        backgroundBloodMoon = new Background("bloodMoon");
+        backgroundList[0] = backgroundMorning;
+        backgroundList[1] = backgroundSunny;
+        backgroundList[2] = backgroundSunset;
+        backgroundList[3] = backgroundNight;
+        // Initialize cloud images
+        couldList[0] = new Cloud("cloud1");
+        couldList[1] = new Cloud("cloud2");
+        couldList[2] = new Cloud("cloud3");
+        couldList[3] = new Cloud("cloud4");
+        couldList[4] = new Cloud("cloud5");
     }
     
-    /* Initialize the game */
-    public void initWindow(int Level) {
-        active = true;
-        
-        setMusic("musiclevel"+Level);
-        
-        int type = 0;
-        if (Level < 3) {
-            type = 0;    
-        } else if (Level < 6) {
-            type = 1;    
-        } else if (Level < 9) {
-            type = 2;    
-        } else {
-            type = 3;    
-        }
-        
-        m_scene.resetDecorsGame(type);
-        
-        m_music = minim.loadFile("data/game/musiclevel"+Level+".mp3");
-        m_music.rewind();
-        m_music.pause();
+    /**
+     * <p>Initialize Windows.</p>
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
+    public void initWindows() throws GameException {
+        // Initialize windows
+        _menu = new Menu();   
     }
     
+    /* GETTER */
+    public Background getBackgroundMorning() {
+        return backgroundMorning;
+    }
+    
+    public Background getBackgroundSunny() {
+        return backgroundSunny;
+    }
+    
+    public Background getBackgroundSunset() {
+        return backgroundSunset;
+    }
+    
+    public Background getBackgroundNight() {
+        return backgroundNight;
+    }
+    
+    public Background getBackgroundBloodMoon() {
+        return backgroundBloodMoon;
+    }
+    
+    public Cloud[] getCloudList() {
+        return couldList;
+    }
+    
+    /**
+     * <p>Get a random background from a list of background.</p>
+     *
+     * @return Image : the background image
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
+    public Background getRandomBackground() {
+        // Range : [0;4[
+        int rand = (int) random(0, 4);
+        return backgroundList[rand];
+    }
+    
+    /**
+     * <p>Draw method.</p>
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
     public void draw() {
-        m_scene.draw();
-        
-        if (m_player.m_goingRight) {
-            m_scene.moveMountain(direction.LEFT);
-            m_scene.moveCloud(direction.LEFT);  
-            m_scene.moveIsle(direction.LEFT);
-            m_scene.movePlateform(direction.LEFT);
-        }
-        
-        if (m_player.m_goingLeft) {
-            m_scene.moveMountain(direction.RIGHT);
-            m_scene.moveCloud(direction.RIGHT);  
-            m_scene.moveIsle(direction.RIGHT);
-            m_scene.movePlateform(direction.RIGHT);
-        }
-        
-        m_music.setGain(-20);
-        m_music.play();
-        
-        m_player.draw();
+       if (_menu.isActive()) {
+           _menu.draw();    
+       }
     }
     
-    public void keyPressed() {
-        m_player.keyPressed();
-        
-        if (key == 'm') {
-            active = false;
-            m_music.rewind();
-            m_music.pause();
-            menu.initWindow(1);
-        }    
+    /**
+     * <p>Key Pressed method.</p>
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
+    void keyPressed() {
+        if (_menu.isActive()) {
+            _menu.keyPressed();    
+        }
     }
     
-    public void keyReleased() {
-        m_player.keyReleased();    
+    /**
+     * <p>Key Released method.</p>
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
+    void keyReleased() {
+        
     }
-
+    
 }

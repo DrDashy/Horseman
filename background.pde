@@ -1,21 +1,7 @@
-/*
- * 
- */
-public class Background extends Decors {
-
-    Background(BDD bdd) {
-    
-    
-        super(bdd);
+class Background extends Image {
+ 
+    Background(String imageName) throws GameException {
+        super(imageName);
     }
-    
-    @Override
-    public void parallaxLeft() { }
-    
-    
-    
-    @Override
-    
-    public void parallaxRight() { }
     
 }

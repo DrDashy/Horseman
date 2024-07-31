@@ -5,39 +5,47 @@
  */
 public class Point {
 
-    private float X;
-    private float Y;
+    private float x;
+    private float y;
 
     Point() {
-        X = 0;
-        Y = 0;
+        x = 0;
+        y = 0;
     }
 
-    Point(float X, float Y) {
-        this.X = X;
-        this.Y = Y;
+    Point(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
     public float getX () {
-        return X;
+        return x;
     }
 
-    public void setX(float X) {
-        this.X = X;
+    public void setX(float x) {
+        this.x = x;
     }
 
     public float getY () {
-        return Y;
+        return y;
     }
 
-    public void setY(float Y) {
-        this.Y = Y;
+    public void setY(float y) {
+        this.y = y;
     }
 
-    /* Set new coordinate */
-    public void setCoordinates(float X, float Y) {
-        this.X = X;
-        this.Y = Y;
+    /**
+     * <p>Set new coordonate position.</p>
+     *
+     * @param x : value on x
+     * @param y : value on y
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
+    public void setCoordinates(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
 }

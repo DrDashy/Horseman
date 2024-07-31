@@ -21,8 +21,7 @@ The game was ready for the deadline, but some problems remained and couldn't be 
 ## What I want to do :
 Today, I decided to redo this game, and make it better, with the help of everything I have learned until now..
 
-First, I'll try to recode it in a more proper and tidy manner (like by using object-oriented programming), and also try to    
-correct all the problems announced above.
+First, I'll try to recode it in a more proper and tidy manner (like by using object-oriented programming), and also try to correct all the problems announced above.
 
 Then I will try to evolve the game by adding more features :
   * diversify the level design
@@ -40,16 +39,17 @@ The problem was ultimately solved by this line of code :
 ```
 
 The problem is: to this day, I do not know how I came up with this line of code, and WHY IN HELL DOES IT WORKS?
-This, is the biggest reason for my wanting to redo this game.
+This, is the biggest reason to redo this game.
     
 ## In progress :
-  * Add camera to follow player moves
+  * Menu setup (image, sound...)
   * Add Javadoc in all class and function
+  * Add control keyboard on menu
 
-## Run the game in Processing :
+## Run the game in Processing 4.3 :
   1. [Download processing](https://processing.org/download/)
-  2. In processing you have to download libraries : Tools --> add tools --> Libraries --> Search for "Minim" --> Install
-  3. Open Project
+  2. In processing you have to download libraries : Tools --> add tools --> Libraries --> Search for "Minim" & "BezierSQLib" --> Install
+  3. Open Project by opening the file named "Horseman" (processing will automatically open all other files).
   4. Run the game
   
 ## Run the game with executable :
