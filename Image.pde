@@ -12,6 +12,7 @@ private abstract class Image {
     protected String _name;
     protected String _source;
     protected int _modeId;
+    protected float _speed;
     
     // Other
     protected PImage picture;
@@ -19,6 +20,7 @@ private abstract class Image {
     protected Movement movement;
     protected boolean canDraw = true;
     protected boolean canRespawn = false;
+    protected boolean newSpeedOnRespawn = false;
     protected int maxPosXLeft;
     protected int maxPosXRight;
  
@@ -41,7 +43,7 @@ private abstract class Image {
         println(_source);
         println(imageFile.exists());
         if (!imageFile.exists()) {
-            throw new GameException("Image :: Image with path '" + _source + "' does not exist.");      //<>// //<>// //<>//
+            throw new GameException("Image :: Image with path '" + _source + "' does not exist."); //<>//
         }
         */
         
@@ -59,11 +61,13 @@ private abstract class Image {
         _name = copy._name;
         _source = copy._source;
         _modeId = copy._modeId;
+        _speed = copy._speed;
         picture = copy.picture;
         colorTint = copy.colorTint;
         movement = new Movement(copy.movement);
         canDraw = copy.canDraw;
         canRespawn = copy.canRespawn;
+        newSpeedOnRespawn = copy.newSpeedOnRespawn;
         maxPosXLeft = copy.maxPosXLeft;
         maxPosXRight = copy.maxPosXRight;
     }
@@ -102,6 +106,7 @@ private abstract class Image {
             _name = dbConnect.getString("name");
             _source = dbConnect.getString("source");
             _modeId = dbConnect.getInt("modeId");
+            _speed = dbConnect.getInt("speed");
             colorId = dbConnect.getInt("colorId");
             movement = new Movement(
                 dbConnect.getInt("speed"), 

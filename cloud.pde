@@ -21,6 +21,9 @@ class Cloud extends Image {
     
     private void respawnLeft() {
         if (movement.coord.getX() < maxPosXLeft ) {
+            if (newSpeedOnRespawn) {
+                movement.setSpeed(random(_speed/2, _speed));
+            }
             movement.coord.setCoordinates(random(width, width*2), random(0, height/2));
         }
     }
