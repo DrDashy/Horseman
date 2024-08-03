@@ -2,6 +2,10 @@
  * Coordinate X and Y axes
  * X : position on the axes X
  * Y : position on the axes Y
+ *
+ * @author Axel DUCUING
+ * @version 1.0.0
+ * @since 1.0.0
  */
 public class Point {
 
@@ -18,16 +22,18 @@ public class Point {
         this.y = y;
     }
 
+    /* GETTER */
     public float getX () {
         return x;
     }
-
-    public void setX(float x) {
-        this.x = x;
-    }
-
+    
     public float getY () {
         return y;
+    }
+    
+    /* SETTER */
+    public void setX(float x) {
+        this.x = x;
     }
 
     public void setY(float y) {

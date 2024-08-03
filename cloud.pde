@@ -1,7 +1,5 @@
 class Cloud extends Image {
     
-    private final int maxPosXLeft = -300;
-    
     Cloud(String imageName) throws GameException {
         super(imageName);
         

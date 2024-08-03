@@ -8,7 +8,7 @@ final static int MODE_CENTER = 2;
 private abstract class Image {
     
     // Database
-    protected int _id;
+    protected int _id = -1;
     protected String _name;
     protected String _source;
     protected int _modeId;
@@ -17,6 +17,10 @@ private abstract class Image {
     protected PImage picture;
     protected Color colorTint;
     protected Movement movement;
+    protected boolean canDraw = true;
+    protected boolean canRespawn = false;
+    protected int maxPosXLeft;
+    protected int maxPosXRight;
  
     /**
      * Constructor, set an Image object with values in database based on the name.
@@ -26,7 +30,6 @@ private abstract class Image {
      * @exception GameException : Game cannot process further
      */
     private Image(String name) throws GameException {
-        _id = -1;
         getImageByName(name);
         
         /*
@@ -39,9 +42,14 @@ private abstract class Image {
             throw new GameException("Image :: Image with path '" + _source + "' does not exist.");      //<>// //<>//
         }
         */
+        
         picture = loadImage(_source);
         picture.resize(picture.width / RATION_WIDTH, picture.height / RATION_HEIGHT);
+        
+        initMaxPosX();
     }
+    
+    /* SETTER */
     
     /**
      * Retreive Image from database and set values.
@@ -49,6 +57,9 @@ private abstract class Image {
      * @param imageName : represent the field <b>name</b> from the table <b>image</b> in the database
      *
      * @exception GameException : Game cannot process further
+     *
+     * @version 1.0.0
+     * @since 1.0.0
      */
     private void getImageByName(String imageName) throws GameException {
         SQLite dbConnect = null;
@@ -82,6 +93,17 @@ private abstract class Image {
             throw new GameException("Image :: Image named '" + imageName + "' not initialize properly.");
         }
         colorTint = new Color(colorId);
+    }
+    
+    /**
+     * Initialize the coordonate max on the horizontal axis where an action will be triggered.
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
+    private void initMaxPosX() {
+         maxPosXLeft = MAX_POS_X_LEFT - picture.width;
+         maxPosXRight = MAX_POS_X_RIGHT + picture.width;
     }
     
     /**

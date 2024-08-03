@@ -4,9 +4,20 @@ public class Game {
     private Background backgroundSunny;
     private Background backgroundSunset;
     private Background backgroundNight;
-    private Background backgroundBloodMoon;
-    private Background[] backgroundList = new Background[5];
+    private Background[] backgroundList = new Background[4];
     private Cloud[] couldList = new Cloud[5];
+    private Isle isle1;
+    private Isle isle2;
+    private Isle isle3;
+    private Isle isle4;
+    private Isle[] isleList = new Isle[4];
+    
+    private Background backgroundBloodMoon;
+    private Isle isle1BloodMoon;
+    private Isle isle2BloodMoon;
+    private Isle isle3BloodMoon;
+    private Isle isle4BloodMoon;
+    private Isle[] isleBloodMoonList = new Isle[4];
 
     public Menu _menu;
     
@@ -16,17 +27,36 @@ public class Game {
         backgroundSunny = new Background("sunny");
         backgroundSunset = new Background("sunset");
         backgroundNight = new Background("night");
-        backgroundBloodMoon = new Background("bloodMoon");
         backgroundList[0] = backgroundMorning;
         backgroundList[1] = backgroundSunny;
         backgroundList[2] = backgroundSunset;
         backgroundList[3] = backgroundNight;
+        backgroundBloodMoon = new Background("bloodMoon");
+        
         // Initialize cloud images
         couldList[0] = new Cloud("cloud1");
         couldList[1] = new Cloud("cloud2");
         couldList[2] = new Cloud("cloud3");
         couldList[3] = new Cloud("cloud4");
         couldList[4] = new Cloud("cloud5");
+        
+        // Initialize isle images
+        isle1 = new Isle("isle1");
+        isle2 = new Isle("isle2");
+        isle3 = new Isle("isle3");
+        isle4 = new Isle("isle4");
+        isleList[0] = isle1;
+        isleList[1] = isle2;
+        isleList[2] = isle3;
+        isleList[3] = isle4;
+        isle1BloodMoon = new Isle("isle1_bloodMoon");
+        isle2BloodMoon = new Isle("isle2_bloodMoon");
+        isle3BloodMoon = new Isle("isle3_bloodMoon");
+        isle4BloodMoon = new Isle("isle4_bloodMoon");
+        isleBloodMoonList[0] = isle1BloodMoon;
+        isleBloodMoonList[1] = isle2BloodMoon;
+        isleBloodMoonList[2] = isle3BloodMoon;
+        isleBloodMoonList[3] = isle4BloodMoon;
     }
     
     /**
@@ -63,6 +93,35 @@ public class Game {
     
     public Cloud[] getCloudList() {
         return couldList;
+    }
+    
+    public Isle getIsle1() {
+        return isle1;
+    }
+    
+    public Isle getIsle2() {
+        return isle2;
+    }
+    
+    public Isle getIsle3() {
+        return isle3;
+    }
+    
+    public Isle[] getIsleList() {
+        return isleList;
+    }
+    
+    public Isle[] getRandomIsleList(int nbIsle, boolean specialIsle) {
+        Isle[] newIsleList = new Isle[nbIsle];
+        int maxRange = (specialIsle) ? 4 : 3;
+        for (int i=0; i<nbIsle; i++) {
+            newIsleList[i] = isleList[(int) random(0, maxRange)];
+        }
+        return newIsleList;
+    }
+    
+    public Isle[] getIsleBloodMoonList() {
+        return isleBloodMoonList;
     }
     
     /**

@@ -16,7 +16,7 @@
  */
 public class Color { 
     
-    private int _id;
+    private int _id = -1;
     private int _red;
     private int _green;
     private int _blue;
@@ -32,7 +32,6 @@ public class Color {
      * @since 1.0.0
      */
     Color(int rvb, int alpha) {
-        _id = -1;
         _red = rvb;
         _green = rvb;
         _blue = rvb; 
@@ -68,7 +67,6 @@ public class Color {
      * @since 1.0.0
      */
     Color(int red, int green, int blue, int alpha) {
-        _id = -1;
         _red = red;
         _green = green;
         _blue = blue; 
@@ -86,7 +84,6 @@ public class Color {
      * @since 1.0.0
      */
     Color(int id) throws GameException {
-        _id = -1;
         getColorById(id);     
     }
     
