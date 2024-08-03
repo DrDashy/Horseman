@@ -13,6 +13,14 @@ public class Movement {
         coord = new Point(x, y);
     }
     
+    /*
+     * Deep copy constructor
+     */
+    private Movement(Movement copy) {
+        speed = copy.speed;
+        coord = new Point(copy.coord);
+    }
+    
     public void setSpeed(float newSpeed) {
         speed = newSpeed;
     }

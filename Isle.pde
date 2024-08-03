@@ -4,6 +4,13 @@ class Isle extends Image {
         super(imageName);
     }
     
+    /*
+     * Deep copy constructor
+     */
+    Isle(Isle copy) {
+        super(copy);
+    }
+    
     private void parallaxLeft() {  
         if (movement.coord.getX() < maxPosXLeft ) {
             canDraw = false;
@@ -26,6 +33,12 @@ class Isle extends Image {
         }
     }
     
+    /*
+     * <p>Draw method.</p>
+     *
+     * @version 1.0.0
+     * @since 1.0.0
+     */
     @Override
     public void draw() {
         if (canRespawn) {

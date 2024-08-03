@@ -10,20 +10,27 @@ public class Menu extends Window {
         super("menu");
         background = game.getRandomBackground();
         mountain = new Mountain("mountain_" + background._name);
-        cloudList = game.getCloudList();
-        isleList = game.getRandomIsleList(3, false);
+        cloudList = game.getRandomCloudList(5);
+        initCloud();
+        isleList = game.getRandomIsleList(5, false);
         initIsle(); 
         menuText = new TextImage("menu"); //<>//
         // music.loopMusic();
     }
     
+    private void initCloud() {
+        for (Cloud cloud : cloudList) {
+            cloud.canRespawn = true;
+            cloud.movement.setSpeed(random(cloud.movement.speed/2, cloud.movement.speed));
+            cloud.movement.coord.setCoordinates(random(0, width*2), random(0, height/2));
+        }
+    }
+    
     private void initIsle() {
-        float posX = width/2;
         for (Isle isle : isleList) {
             isle.canRespawn = true;
-            isle.movement.setSpeed(random(isle.movement.speed/2, isle.movement.speed));
-            isle.movement.coord.setCoordinates(posX, random(height/10*2, height/10*5));
-            posX = posX + random(width/2, width);
+            isle.movement.setSpeed(random(isle.movement.speed/4, isle.movement.speed/2));
+            isle.movement.coord.setCoordinates(random(0, width+(width/4)), random(height/10*2, height/10*5));
         }
     }
     

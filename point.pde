@@ -12,6 +12,8 @@ public class Point {
     private float x;
     private float y;
 
+    /***** CONSTRUCTOR *****/
+
     Point() {
         x = 0;
         y = 0;
@@ -21,8 +23,17 @@ public class Point {
         this.x = x;
         this.y = y;
     }
-
-    /* GETTER */
+    
+    /*
+     * Deep copy constructor
+     */
+    private Point(Point copy) {
+        x = copy.x;
+        y = copy.y;
+    }
+    
+    /***** GETTER *****/
+    
     public float getX () {
         return x;
     }
@@ -31,7 +42,8 @@ public class Point {
         return y;
     }
     
-    /* SETTER */
+    /***** SETTER *****/
+    
     public void setX(float x) {
         this.x = x;
     }
@@ -39,6 +51,8 @@ public class Point {
     public void setY(float y) {
         this.y = y;
     }
+    
+    /***** METHOD *****/
 
     /**
      * <p>Set new coordonate position.</p>

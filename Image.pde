@@ -22,6 +22,8 @@ private abstract class Image {
     protected int maxPosXLeft;
     protected int maxPosXRight;
  
+    /***** CONSTRUCTOR *****/
+ 
     /**
      * Constructor, set an Image object with values in database based on the name.
      *
@@ -39,7 +41,7 @@ private abstract class Image {
         println(_source);
         println(imageFile.exists());
         if (!imageFile.exists()) {
-            throw new GameException("Image :: Image with path '" + _source + "' does not exist.");      //<>// //<>//
+            throw new GameException("Image :: Image with path '" + _source + "' does not exist.");      //<>// //<>// //<>//
         }
         */
         
@@ -49,7 +51,24 @@ private abstract class Image {
         initMaxPosX();
     }
     
-    /* SETTER */
+    /*
+     * Deep copy constructor
+     */
+    private Image(Image copy) {
+        _id = copy._id;
+        _name = copy._name;
+        _source = copy._source;
+        _modeId = copy._modeId;
+        picture = copy.picture;
+        colorTint = copy.colorTint;
+        movement = new Movement(copy.movement);
+        canDraw = copy.canDraw;
+        canRespawn = copy.canRespawn;
+        maxPosXLeft = copy.maxPosXLeft;
+        maxPosXRight = copy.maxPosXRight;
+    }
+    
+    /***** METHOD *****/
     
     /**
      * Retreive Image from database and set values.

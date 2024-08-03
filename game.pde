@@ -95,27 +95,20 @@ public class Game {
         return couldList;
     }
     
-    public Isle getIsle1() {
-        return isle1;
-    }
-    
-    public Isle getIsle2() {
-        return isle2;
-    }
-    
-    public Isle getIsle3() {
-        return isle3;
-    }
-    
-    public Isle[] getIsleList() {
-        return isleList;
+    public Cloud[] getRandomCloudList(int nbCloud) {
+        Cloud[] newCloudList = new Cloud[nbCloud];
+        int maxRange = couldList.length;
+        for (int i=0; i<nbCloud; i++) {
+            newCloudList[i] = new Cloud(couldList[(int) random(0, maxRange)]);
+        }
+        return newCloudList;
     }
     
     public Isle[] getRandomIsleList(int nbIsle, boolean specialIsle) {
         Isle[] newIsleList = new Isle[nbIsle];
         int maxRange = (specialIsle) ? 4 : 3;
         for (int i=0; i<nbIsle; i++) {
-            newIsleList[i] = isleList[(int) random(0, maxRange)];
+            newIsleList[i] = new Isle(isleList[(int) random(0, maxRange)]);
         }
         return newIsleList;
     }
