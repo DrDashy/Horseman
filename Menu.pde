@@ -26,14 +26,13 @@ public class Menu extends Window {
         for (int i=0; i<NUMBER_LEVEL; i++) {
             menuLevelTextList[i] = new MenuLevelText(i+1); //<>//
         }
-        initLevels(); 
-        music.setGain(-5);
+        initLevels();
         music.loopMusic();
     }
     
     private void initCloud() {
-        for (Cloud cloud : cloudList) { //<>//
-            cloud.canRespawn = true;
+        for (Cloud cloud : cloudList) {
+            cloud.canRespawn = true; //<>//
             cloud.newSpeedOnRespawn = true;
             cloud.movement.setSpeed(random(cloud.movement.speed/2, cloud.movement.speed));
             cloud.movement.coord.setCoordinates(random(0, width*2), random(0, height/2));

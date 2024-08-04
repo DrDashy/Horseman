@@ -1,6 +1,7 @@
 // Musics and sounds library
 import ddf.minim.*;
 
+
 /**
  * <b>Audio represent a class for the configuration and use of the minim library.<b>
  * <p>
@@ -121,16 +122,6 @@ class Music extends Audio {
     public void resetMusic() {
         pauseMusic();
         rewindMusic();
-    }
-    
-    /**
-     * <p>Set the gain on the music.</p>
-     *
-     * @version 1.0.0
-     * @since 1.0.0
-     */
-    public void setGain(int gain) {
-        music.setGain(gain);
     }
     
 }
