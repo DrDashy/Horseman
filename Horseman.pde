@@ -37,6 +37,8 @@ void setup() {
  * @since 1.0.0
  */
 void draw() {
+    // Reset background to update all drawing
+    background(15);
     game.draw();
 }
 

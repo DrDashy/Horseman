@@ -17,8 +17,8 @@
 private abstract class Window {
     
     // Database info
-    protected int _id;
-    protected String _name;
+    private int _id;
+    private String _name;
     
     // Other
     protected boolean active;

@@ -8,11 +8,11 @@ final static int MODE_CENTER = 2;
 private abstract class Image {
     
     // Database
-    protected int _id = -1;
-    protected String _name;
-    protected String _source;
-    protected int _modeId;
-    protected float _speed;
+    private int _id = -1;
+    private String _name;
+    private String _source;
+    private int _modeId;
+    private float _speed;
     
     // Other
     protected PImage picture;
@@ -70,6 +70,16 @@ private abstract class Image {
         newSpeedOnRespawn = copy.newSpeedOnRespawn;
         maxPosXLeft = copy.maxPosXLeft;
         maxPosXRight = copy.maxPosXRight;
+    }
+    
+    /***** GETTER *****/
+    
+    public String _getName() {
+        return _name;    
+    }
+    
+    public float _getSpeed() {
+        return _speed;    
     }
     
     /***** METHOD *****/

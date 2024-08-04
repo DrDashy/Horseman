@@ -22,7 +22,7 @@ class Isle extends Image {
     private void respawnLeft() {
         if (movement.coord.getX() < maxPosXLeft ) {
             if (newSpeedOnRespawn) {
-                movement.setSpeed(random(_speed/2, _speed));
+                movement.setSpeed(random(_getSpeed()/2, _getSpeed()));
             }
             movement.coord.setCoordinates(random(width, width+(width/2)), random(height/10*2, height/10*5));
         }
