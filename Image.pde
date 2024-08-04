@@ -43,7 +43,7 @@ private abstract class Image {
         println(_source);
         println(imageFile.exists());
         if (!imageFile.exists()) {
-            throw new GameException("Image :: Image with path '" + _source + "' does not exist."); //<>//
+            throw new GameException("Image :: Image with path '" + _source + "' does not exist."); //<>// //<>//
         }
         */
         
