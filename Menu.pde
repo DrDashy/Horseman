@@ -23,6 +23,7 @@ public class Menu extends Window {
     protected TextImage menu8Highlight;
     protected TextImage menu9;
     protected TextImage menu9Highlight;
+    protected int actualLevel = game.getProfil().getMaxLevelUnlocked();
     
     Menu() throws GameException {
         super("menu");
@@ -31,7 +32,7 @@ public class Menu extends Window {
         cloudList = game.getRandomCloudList(5);
         initCloud();
         isleList = game.getRandomIsleList(4, false);
-        initIsle(); 
+        initIsle();  //<>//
         menuText = new TextImage("menu"); //<>//
         menu1 = new TextImage("menu1");
         menu1Highlight = new TextImage("menu1Highlight");
@@ -113,8 +114,32 @@ public class Menu extends Window {
         menu9.movement.coord.setCoordinates(xPos, yPos);
         menu9Highlight.movement.coord.setCoordinates(xPos, yPos);
         menu9Highlight.canDraw = false;
-        
-        switch(game.getProfil().getMaxLevelUnlocked()) {
+        updateLevelHighlighted(game.getProfil().getMaxLevelUnlocked());
+    }
+    
+    private void resetLevelHighlighted() throws GameException {
+        menu1.canDraw = true;
+        menu1Highlight.canDraw = false;
+        menu2.canDraw = true;
+        menu2Highlight.canDraw = false;
+        menu3.canDraw = true;
+        menu3Highlight.canDraw = false;
+        menu4.canDraw = true;
+        menu4Highlight.canDraw = false;
+        menu5.canDraw = true;
+        menu5Highlight.canDraw = false;
+        menu6.canDraw = true;
+        menu6Highlight.canDraw = false;
+        menu7.canDraw = true;
+        menu7Highlight.canDraw = false;
+        menu8.canDraw = true;
+        menu8Highlight.canDraw = false;
+        menu9.canDraw = true;
+        menu9Highlight.canDraw = false;
+    }
+    
+    private void updateLevelHighlighted(int level) throws GameException {
+        switch(level) {
             case 1:
                 menu1.canDraw = false;
                 menu1Highlight.canDraw = true;
@@ -153,6 +178,22 @@ public class Menu extends Window {
                 break;
             default:
                 throw new GameException("Menu :: the level max that the user unlocked does not exist. Level max found : '" + game.getProfil().getMaxLevelUnlocked() + "'");
+        }    
+    }
+    
+    private void nextLevel() throws GameException {
+        if (actualLevel < game.getProfil().getMaxLevelUnlocked()) {
+            resetLevelHighlighted();
+            actualLevel++;
+            updateLevelHighlighted(actualLevel);
+        }
+    }
+    
+    private void oldLevel() throws GameException {
+        if (actualLevel > 1) {
+            resetLevelHighlighted();
+            actualLevel--;  
+            updateLevelHighlighted(actualLevel);
         }
     }
     
@@ -192,8 +233,15 @@ public class Menu extends Window {
     }
     
     @Override
-    public void keyPressed() {
-                   
+    public void keyPressed() throws GameException {
+        if (key == CODED) {
+            if (keyCode == LEFT) {
+                oldLevel();
+            }
+            if (keyCode == RIGHT) {
+                nextLevel();
+            }
+        }               
     }
     
     @Override

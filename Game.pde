@@ -158,7 +158,7 @@ public class Game {
      * @version 1.0.0
      * @since 1.0.0
      */
-    void keyPressed() {
+    public void keyPressed() throws GameException {
         if (_menu.isActive()) {
             _menu.keyPressed();    
         }
@@ -170,7 +170,7 @@ public class Game {
      * @version 1.0.0
      * @since 1.0.0
      */
-    void keyReleased() {
+    public void keyReleased() {
         
     }
     

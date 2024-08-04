@@ -123,7 +123,7 @@ private abstract class Window {
      * @version 1.0.0
      * @since 1.0.0
      */
-    public abstract void keyPressed();
+    public abstract void keyPressed() throws GameException;
     
     /**
      * <p>Key Released method.</p>

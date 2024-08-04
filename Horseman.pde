@@ -30,7 +30,37 @@ void setup() {
     }
 }
 
-
+/**
+ * <p>Draw method.</p>
+ *
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 void draw() {
     game.draw();
+}
+
+/**
+ * <p>Key Pressed method.</p>
+ *
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+public void keyPressed() {
+    try {
+        game.keyPressed();
+    } catch (GameException e) {
+        println(e.getMessage());
+        exit();
+    }
+}
+
+/**
+ * <p>Key Released method.</p>
+ *
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+public void keyReleased() {
+    game.keyReleased();
 }
