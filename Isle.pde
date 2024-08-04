@@ -44,13 +44,13 @@ class Isle extends Image {
      */
     @Override
     public void draw() {
-        if (canRespawn) {
-            respawnLeft();
-        } else {
-            parallaxLeft();    
-        }
-        movement.MoveLeft(); 
         if (canDraw) {
+            if (canRespawn) {
+                respawnLeft();
+            } else {
+                parallaxLeft();    
+            }
+            movement.MoveLeft(); 
             super.draw();
         }
     }

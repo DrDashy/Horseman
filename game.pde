@@ -1,5 +1,7 @@
 public class Game {
     
+    private Profil profil;
+    
     private Background backgroundMorning;
     private Background backgroundSunny;
     private Background backgroundSunset;
@@ -19,9 +21,11 @@ public class Game {
     private Isle isle4BloodMoon;
     private Isle[] isleBloodMoonList = new Isle[4];
 
-    public Menu _menu;
+    private Menu _menu;
     
     Game() throws GameException {
+        profil = new Profil("axel");
+        
         // Initialize background images
         backgroundMorning = new Background("morning");
         backgroundSunny = new Background("sunny");
@@ -71,6 +75,11 @@ public class Game {
     }
     
     /* GETTER */
+    
+    public Profil getProfil() {
+        return profil;   
+    }
+    
     public Background getBackgroundMorning() {
         return backgroundMorning;
     }

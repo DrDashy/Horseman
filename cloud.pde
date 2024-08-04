@@ -36,13 +36,15 @@ class Cloud extends Image {
      */
     @Override
     public void draw() {
-        if (canRespawn) {
-            respawnLeft();
-        } else {
-            parallaxLeft();    
+        if (canDraw) {
+            if (canRespawn) {
+                respawnLeft();
+            } else {
+                parallaxLeft();    
+            }
+            movement.MoveLeft();
+            super.draw();
         }
-        movement.MoveLeft();
-        super.draw();
     }
     
 }

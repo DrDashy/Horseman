@@ -43,7 +43,7 @@ private abstract class Image {
         println(_source);
         println(imageFile.exists());
         if (!imageFile.exists()) {
-            throw new GameException("Image :: Image with path '" + _source + "' does not exist."); //<>//
+            throw new GameException("Image :: Image with path '" + _source + "' does not exist."); //<>// //<>//
         }
         */
         
@@ -85,8 +85,8 @@ private abstract class Image {
      * @since 1.0.0
      */
     private void getImageByName(String imageName) throws GameException {
-        SQLite dbConnect = null;
         int colorId = -1;
+        SQLite dbConnect = null;
         try {
             dbConnect = database.getInstance().getDbConnection();
         } catch (DatabaseException e) {
