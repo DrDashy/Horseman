@@ -26,6 +26,12 @@ class Profil {
         return _maxLevelUnlocked;
     }
     
+    /***** SETTER *****/
+    
+    public void setMaxLevelUnlocked(int level) {
+        _maxLevelUnlocked = level;
+    }
+    
     /***** METHOD *****/
     
     /**
@@ -62,6 +68,23 @@ class Profil {
         if (-1 == _id) {
             throw new GameException("Profil :: Profil named '" + profilName + "' not initialize properly.");
         }
+    }
+    
+    public void updateMaxLevelUnlocked(int level) throws GameException {
+        SQLite dbConnect = null;
+        try {
+            dbConnect = database.getInstance().getDbConnection();
+        } catch (DatabaseException e) {
+            println(e.getMessage());
+            throw new GameException("Profil :: Unable to get the database connection instance.");
+        } 
+        dbConnect.query(
+            (
+                "UPDATE profil " +
+                "SET maxLevelUnlocked=%d " + 
+                "WHERE id=%d;"
+            ), level, _id
+        );
     }
     
 }

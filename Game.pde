@@ -160,7 +160,7 @@ public class Game {
      */
     public void keyPressed() throws GameException {
         if (_menu.isActive()) {
-            _menu.keyPressed();    
+            _menu.keyPressed();
         }
     }
     

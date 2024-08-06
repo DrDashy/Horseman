@@ -19,6 +19,12 @@ class MenuLevelText {
         levelHighlight.canDraw = false;
     }
     
+    protected void lockedLevel() {
+        levelLocked.canDraw = true;
+        level.canDraw = false;
+        levelHighlight.canDraw = false;
+    }
+    
     protected void unlockedLevel() {
         levelLocked.canDraw = false;
         level.canDraw = true;
