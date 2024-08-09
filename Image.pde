@@ -21,6 +21,7 @@ private abstract class Image {
     protected boolean canDraw = true;
     protected boolean canRespawn = false;
     protected boolean newSpeedOnRespawn = false;
+    protected boolean isSpecialPic = false;
     protected int maxPosXLeft;
     protected int maxPosXRight;
  

@@ -104,6 +104,13 @@ public class Game {
         return couldList;
     }
     
+    public PImage getRandomCloudPicture() {
+        PImage newCloudPic;
+        int maxRange = couldList.length;
+        newCloudPic = couldList[(int) random(0, maxRange)].picture;
+        return newCloudPic;
+    }
+    
     public Cloud[] getRandomCloudList(int nbCloud) {
         Cloud[] newCloudList = new Cloud[nbCloud];
         int maxRange = couldList.length;
@@ -111,6 +118,13 @@ public class Game {
             newCloudList[i] = new Cloud(couldList[(int) random(0, maxRange)]);
         }
         return newCloudList;
+    }
+    
+    public PImage getRandomIslePicture(boolean specialIsle) {
+        PImage newIslePic;
+        int maxRange = (specialIsle) ? 4 : 3;
+        newIslePic = isleList[(int) random(0, maxRange)].picture;
+        return newIslePic;
     }
     
     public Isle[] getRandomIsleList(int nbIsle, boolean specialIsle) {

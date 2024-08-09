@@ -25,6 +25,7 @@ class Isle extends Image {
                 movement.setSpeed(random(_getSpeed()/2, _getSpeed()));
             }
             movement.coord.setCoordinates(random(width, width+(width/2)), random(height/10*2, height/10*5));
+            picture = game.getRandomIslePicture(isSpecialPic);
         }
     }
     
