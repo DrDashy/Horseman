@@ -44,7 +44,7 @@ This, is the biggest reason to redo this game.
 ## In progress :
   * Menu setup (image, sound...)
   * Add Javadoc in all class and function
-  * Add control keyboard on menu
+  * Create level one
 
 ## Run the game in Processing 4.3 :
   1. [Download processing](https://processing.org/download/)

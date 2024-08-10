@@ -12,6 +12,7 @@ public class Menu extends Window {
     private TextImage menuText;
     private ProfilSelector profilSelector;
     private LevelSelector levelSelector;
+    public Music menuClick;
     
     /***** CONSTRUCTOR *****/
     
@@ -26,6 +27,7 @@ public class Menu extends Window {
         menuText = new TextImage("menu");
         profilSelector = new ProfilSelector();
         levelSelector = new LevelSelector();
+        menuClick = new Music("menu_click");
         
         profilSelector.active();
         levelSelector.inactive();
@@ -77,6 +79,7 @@ public class Menu extends Window {
         if (profilSelector.isActive()) {
             profilSelector.keyPressed();
             if (key == ' ') {
+                menuClick.autoPlayMusic();
                 if (profilSelector.isNewGame()) {
                     profilSelector.resetGame();
                     levelSelector.resetActualLevel();
@@ -87,6 +90,7 @@ public class Menu extends Window {
         } else if (levelSelector.isActive()) {
             levelSelector.keyPressed();
             if (key == ' ') {
+                menuClick.autoPlayMusic();
                 levelSelector.inactive();
                 music.resetMusic();
                 inactive();

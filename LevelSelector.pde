@@ -57,6 +57,7 @@ public class LevelSelector extends View {
     
     private void nextLevel() throws GameException {
         if (actualLevel < game.getProfil().getMaxLevelUnlocked()) {
+            game._menu.menuClick.autoPlayMusic();
             menuLevelTextList[actualLevel-1].inactiveLevel();
             menuLevelTextList[actualLevel].activeLevel();
             actualLevel++;
@@ -65,6 +66,7 @@ public class LevelSelector extends View {
     
     private void oldLevel() throws GameException {
         if (actualLevel > 1) {
+            game._menu.menuClick.autoPlayMusic();
             actualLevel--;
             menuLevelTextList[actualLevel].inactiveLevel();
             menuLevelTextList[actualLevel-1].activeLevel();

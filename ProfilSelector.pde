@@ -93,6 +93,7 @@ public class ProfilSelector extends View {
     public void keyPressed() throws GameException {
         if (key == CODED) {
             if (keyCode == UP || keyCode == DOWN) {
+                game._menu.menuClick.autoPlayMusic();
                 changeFocus();
             }
         }
