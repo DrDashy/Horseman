@@ -5,6 +5,7 @@ int RATION_WIDTH;
 int RATION_HEIGHT;
 final int MAX_POS_X_LEFT = -300;
 final int MAX_POS_X_RIGHT = 300;
+DatabaseData databaseData;
 Game game;
 
 
@@ -17,6 +18,7 @@ void setup() {
     RATION_HEIGHT = abs(BASE_HEIGHT/height);
     
     try {
+        databaseData = new DatabaseData();
         game = new Game();
         game.initWindows();
         game._menu.active();

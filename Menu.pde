@@ -18,11 +18,11 @@ public class Menu extends Window {
     
     Menu() throws GameException {
         super("menu");
-        background = game.getRandomBackground();
+        background = databaseData.getRandomBackground();
         mountain = new Mountain("mountain_" + background._getName());
-        cloudList = game.getRandomCloudList(NUMBER_CLOUD);
+        cloudList = databaseData.getRandomCloudList(NUMBER_CLOUD);
         initCloud();
-        isleList = game.getRandomIsleList(NUMBER_ISLE, false);
+        isleList = databaseData.getRandomIsleList(NUMBER_ISLE, false);
         initIsle(); 
         menuText = new TextImage("menu");
         profilSelector = new ProfilSelector();
@@ -31,7 +31,7 @@ public class Menu extends Window {
         
         profilSelector.active();
         levelSelector.inactive();
-         //<>//
+         //<>// //<>// //<>//
         music.loopMusic();
     }
     
@@ -73,7 +73,7 @@ public class Menu extends Window {
             levelSelector.draw();
         }
     }
-     //<>//
+     //<>// //<>// //<>//
     @Override
     public void keyPressed() throws GameException {
         if (profilSelector.isActive()) {
