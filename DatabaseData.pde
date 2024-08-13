@@ -2,59 +2,61 @@ public class DatabaseData {
     
     private DatabaseData _instance = null;
     
-    private Background backgroundMorning;
-    private Background backgroundSunny;
-    private Background backgroundSunset;
-    private Background backgroundNight;
-    private Background[] backgroundList = new Background[4];
-    private Cloud[] couldList = new Cloud[5];
-    private Isle isle1;
-    private Isle isle2;
-    private Isle isle3;
-    private Isle isle4;
-    private Isle[] isleList = new Isle[4];
+    private Image backgroundMorning;
+    private Image backgroundSunny;
+    private Image backgroundSunset;
+    private Image backgroundNight;
+    private Image[] backgroundList = new Image[4];
     
-    private Background backgroundBloodMoon;
-    private Isle isle1BloodMoon;
-    private Isle isle2BloodMoon;
-    private Isle isle3BloodMoon;
-    private Isle isle4BloodMoon;
-    private Isle[] isleBloodMoonList = new Isle[4];
+    private Image[] couldList = new Image[5];
+    
+    private Image isle1;
+    private Image isle2;
+    private Image isle3;
+    private Image isle4;
+    private Image[] isleList = new Image[4];
+    
+    private Image backgroundBloodMoon;
+    private Image isle1BloodMoon;
+    private Image isle2BloodMoon;
+    private Image isle3BloodMoon;
+    private Image isle4BloodMoon;
+    private Image[] isleBloodMoonList = new Image[4];
     
     /***** CONSTRUCTOR *****/
     
     public DatabaseData() throws GameException {
         // Initialize background images
-        backgroundMorning = new Background("morning");
-        backgroundSunny = new Background("sunny");
-        backgroundSunset = new Background("sunset");
-        backgroundNight = new Background("night");
+        backgroundMorning = new Image("morning");
+        backgroundSunny = new Image("sunny");
+        backgroundSunset = new Image("sunset");
+        backgroundNight = new Image("night");
         backgroundList[0] = backgroundMorning;
         backgroundList[1] = backgroundSunny;
         backgroundList[2] = backgroundSunset;
         backgroundList[3] = backgroundNight;
-        backgroundBloodMoon = new Background("bloodMoon");
+        backgroundBloodMoon = new Image("bloodMoon");
         
         // Initialize cloud images
-        couldList[0] = new Cloud("cloud1");
-        couldList[1] = new Cloud("cloud2");
-        couldList[2] = new Cloud("cloud3");
-        couldList[3] = new Cloud("cloud4");
-        couldList[4] = new Cloud("cloud5");
+        couldList[0] = new Image("cloud1");
+        couldList[1] = new Image("cloud2");
+        couldList[2] = new Image("cloud3");
+        couldList[3] = new Image("cloud4");
+        couldList[4] = new Image("cloud5");
         
         // Initialize isle images
-        isle1 = new Isle("isle1");
-        isle2 = new Isle("isle2");
-        isle3 = new Isle("isle3");
-        isle4 = new Isle("isle4");
+        isle1 = new Image("isle1");
+        isle2 = new Image("isle2");
+        isle3 = new Image("isle3");
+        isle4 = new Image("isle4");
         isleList[0] = isle1;
         isleList[1] = isle2;
         isleList[2] = isle3;
         isleList[3] = isle4;
-        isle1BloodMoon = new Isle("isle1_bloodMoon");
-        isle2BloodMoon = new Isle("isle2_bloodMoon");
-        isle3BloodMoon = new Isle("isle3_bloodMoon");
-        isle4BloodMoon = new Isle("isle4_bloodMoon");
+        isle1BloodMoon = new Image("isle1_bloodMoon");
+        isle2BloodMoon = new Image("isle2_bloodMoon");
+        isle3BloodMoon = new Image("isle3_bloodMoon");
+        isle4BloodMoon = new Image("isle4_bloodMoon");
         isleBloodMoonList[0] = isle1BloodMoon;
         isleBloodMoonList[1] = isle2BloodMoon;
         isleBloodMoonList[2] = isle3BloodMoon;
@@ -70,63 +72,59 @@ public class DatabaseData {
         return _instance;
     }
     
-    public Background getBackgroundMorning() {
+    public Image getBackgroundMorning() {
         return backgroundMorning;
     }
     
-    public Background getBackgroundSunny() {
+    public Image getBackgroundSunny() {
         return backgroundSunny;
     }
     
-    public Background getBackgroundSunset() {
+    public Image getBackgroundSunset() {
         return backgroundSunset;
     }
     
-    public Background getBackgroundNight() {
+    public Image getBackgroundNight() {
         return backgroundNight;
     }
     
-    public Background getBackgroundBloodMoon() {
+    public Image getBackgroundBloodMoon() {
         return backgroundBloodMoon;
     }
     
-    public Cloud[] getCloudList() {
+    public Image[] getCloudList() {
         return couldList;
     }
     
-    public PImage getRandomCloudPicture() {
-        PImage newCloudPic;
+    public Image getRandomCloud() {
         int maxRange = couldList.length;
-        newCloudPic = couldList[(int) random(0, maxRange)].picture;
-        return newCloudPic;
+        return new Image(couldList[(int) random(0, maxRange)]);
     }
     
-    public Cloud[] getRandomCloudList(int nbCloud) {
-        Cloud[] newCloudList = new Cloud[nbCloud];
+    public Image[] getRandomCloudList(int nbCloud) {
+        Image[] newCloudList = new Image[nbCloud];
         int maxRange = couldList.length;
         for (int i=0; i<nbCloud; i++) {
-            newCloudList[i] = new Cloud(couldList[(int) random(0, maxRange)]);
+            newCloudList[i] = new Image(couldList[(int) random(0, maxRange)]);
         }
         return newCloudList;
     }
     
-    public PImage getRandomIslePicture(boolean specialIsle) {
-        PImage newIslePic;
+    public Image getRandomIsle(boolean specialIsle) {
         int maxRange = (specialIsle) ? 4 : 3;
-        newIslePic = isleList[(int) random(0, maxRange)].picture;
-        return newIslePic;
+        return new Image(isleList[(int) random(0, maxRange)]);
     }
     
-    public Isle[] getRandomIsleList(int nbIsle, boolean specialIsle) {
-        Isle[] newIsleList = new Isle[nbIsle];
+    public Image[] getRandomIsleList(int nbIsle, boolean specialIsle) {
+        Image[] newIsleList = new Image[nbIsle];
         int maxRange = (specialIsle) ? 4 : 3;
         for (int i=0; i<nbIsle; i++) {
-            newIsleList[i] = new Isle(isleList[(int) random(0, maxRange)]);
+            newIsleList[i] = new Image(isleList[(int) random(0, maxRange)]);
         }
         return newIsleList;
     }
     
-    public Isle[] getIsleBloodMoonList() {
+    public Image[] getIsleBloodMoonList() {
         return isleBloodMoonList;
     }
     
@@ -138,7 +136,7 @@ public class DatabaseData {
      * @version 1.0.0
      * @since 1.0.0
      */
-    public Background getRandomBackground() {
+    public Image getRandomBackground() {
         // Range : [0;4[
         int rand = (int) random(0, 4);
         return backgroundList[rand];

@@ -1,22 +1,22 @@
 public class ProfilSelector extends View {
        
     // Other
-    private TextImage newGameText;
-    private TextImage newGameHighlightText;
-    private TextImage continueGameLockedText;
-    private TextImage continueGameText;
-    private TextImage continueGameHighlightText;
+    private Decord newGameText;
+    private Decord newGameHighlightText;
+    private Decord continueGameLockedText;
+    private Decord continueGameText;
+    private Decord continueGameHighlightText;
     private int actualLevel = game.getProfil().getMaxLevelUnlocked();
     
     /***** CONSTRUCTOR *****/
     
     ProfilSelector() throws GameException {
         super();
-        newGameText = new TextImage("newGame");
-        newGameHighlightText = new TextImage("newGameHighlight");
-        continueGameLockedText = new TextImage("continueGameLocked");
-        continueGameText = new TextImage("continueGame");
-        continueGameHighlightText = new TextImage("continueGameHighlight");
+        newGameText = new Decord(imageType.TEXT, "newGame", false, movementDirection.NONE);
+        newGameHighlightText = new Decord(imageType.TEXT, "newGameHighlight", false, movementDirection.NONE);
+        continueGameLockedText = new Decord(imageType.TEXT, "continueGameLocked", false, movementDirection.NONE);
+        continueGameText = new Decord(imageType.TEXT, "continueGame", false, movementDirection.NONE);
+        continueGameHighlightText = new Decord(imageType.TEXT, "continueGameHighlight", false, movementDirection.NONE);
         initMenu();
     }
     

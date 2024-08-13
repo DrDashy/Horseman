@@ -1,13 +1,13 @@
 class MenuLevelText {
     
-    private TextImage level;
-    private TextImage levelHighlight;
-    private TextImage levelLocked;
+    private Decord level;
+    private Decord levelHighlight;
+    private Decord levelLocked;
  
     MenuLevelText(int levelNumber) throws GameException {
-        level = new TextImage("menu" + levelNumber);
-        levelHighlight = new TextImage("menu" + levelNumber + "Highlight");
-        levelLocked = new TextImage("menu" + levelNumber + "Locked");
+        level = new Decord(imageType.TEXT, "menu" + levelNumber, false, movementDirection.NONE);
+        levelHighlight = new Decord(imageType.TEXT, "menu" + levelNumber + "Highlight", false, movementDirection.NONE);
+        levelLocked = new Decord(imageType.TEXT, "menu" + levelNumber + "Locked", false, movementDirection.NONE);
     }
     
     protected void initLevel(float xPos, float yPos) {

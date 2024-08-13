@@ -5,11 +5,11 @@ public class Menu extends Window {
     private final int NUMBER_ISLE = 4;
  
     // Other
-    private Background background;
-    private Mountain mountain;
-    private Cloud[] cloudList;
-    private Isle[] isleList;
-    private TextImage menuText;
+    private Decord background;
+    private Decord mountain;
+    private Decord[] cloudList;
+    private Decord[] isleList;
+    private Decord menuText;
     private ProfilSelector profilSelector;
     private LevelSelector levelSelector;
     public Music menuClick;
@@ -18,51 +18,41 @@ public class Menu extends Window {
     
     Menu() throws GameException {
         super("menu");
-        background = databaseData.getRandomBackground();
-        mountain = new Mountain("mountain_" + background._getName());
-        cloudList = databaseData.getRandomCloudList(NUMBER_CLOUD);
-        initCloud();
-        isleList = databaseData.getRandomIsleList(NUMBER_ISLE, false);
-        initIsle(); 
-        menuText = new TextImage("menu");
+        background = new Decord(imageType.BACKGROUND, databaseData.getRandomBackground(), false, movementDirection.NONE);
+        mountain = new Decord(imageType.MOUNTAIN, "mountain_" + background.getImage()._getName(), false, movementDirection.NONE);
+        cloudList = new Decord[NUMBER_CLOUD];
+        Image[] cloudImageList = databaseData.getRandomCloudList(NUMBER_CLOUD);
+        for (int i=0; i<NUMBER_CLOUD; i++) {
+            cloudList[i] = new Decord(imageType.CLOUD, cloudImageList[i], random(0, width*3), random(0, height/2), true, movementDirection.LEFT);
+            cloudList[i].initRespawn(true, true, width, width*3, 0, height/2);
+        }
+        isleList = new Decord[NUMBER_ISLE];
+        Image[] isleImageList = databaseData.getRandomIsleList(NUMBER_ISLE, false);
+        for (int i=0; i<NUMBER_ISLE; i++) {
+            isleList[i] = new Decord(imageType.ISLE, isleImageList[i], random(0, width+(width/3)), random(height/10*2, height/10*5), true, movementDirection.LEFT);
+            isleList[i].initRespawn(true, true, width, width+(width/3), height/10*2, height/10*5);
+        }
+        menuText = new Decord(imageType.TEXT, "menu", false, movementDirection.NONE);
         profilSelector = new ProfilSelector();
         levelSelector = new LevelSelector();
         menuClick = new Music("menu_click");
         
         profilSelector.active();
         levelSelector.inactive();
-         //<>// //<>// //<>//
+         //<>//
         music.loopMusic();
     }
     
     /***** METHOD *****/
     
-    private void initCloud() {
-        for (Cloud cloud : cloudList) {
-            cloud.canRespawn = true;
-            cloud.newSpeedOnRespawn = true;
-            cloud.movement.setSpeed(random(cloud.movement.speed/2, cloud.movement.speed));
-            cloud.movement.coord.setCoordinates(random(0, width*2), random(0, height/2));
-        }
-    }
-    
-    private void initIsle() {
-        for (Isle isle : isleList) {
-            isle.canRespawn = true;
-            isle.newSpeedOnRespawn = true;
-            isle.movement.setSpeed(random(isle.movement.speed/4, isle.movement.speed/2));
-            isle.movement.coord.setCoordinates(random(0, width+(width/2)), random(height/10*2, height/10*5));
-        }
-    }
-    
     @Override
     public void draw() {
         background.draw();
         mountain.draw();
-        for (Cloud cloud : cloudList) {
+        for (Decord cloud : cloudList) {
             cloud.draw();
         }
-        for (Isle isle : isleList) {
+        for (Decord isle : isleList) {
             isle.draw();
         }
         menuText.draw();
@@ -73,7 +63,7 @@ public class Menu extends Window {
             levelSelector.draw();
         }
     }
-     //<>// //<>// //<>//
+     //<>//
     @Override
     public void keyPressed() throws GameException {
         if (profilSelector.isActive()) {

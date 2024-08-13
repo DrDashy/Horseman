@@ -4,27 +4,28 @@ import java.io.*;
 final static int MODE_CORNER = 1;
 final static int MODE_CENTER = 2;
 
+// Image type
+enum imageType {
+    BACKGROUND,
+    MOUNTAIN,
+    TEXT,
+    CLOUD,
+    ISLE
+}
 
-private abstract class Image {
+
+public class Image {
     
     // Database
     private int _id = -1;
     private String _name;
     private String _source;
     private int _modeId;
+    private int _colorId = -1;
     private float _speed;
+    private int _xPos;
+    private int _yPos;
     
-    // Other
-    protected PImage picture;
-    protected Color colorTint;
-    protected Movement movement;
-    protected boolean canDraw = true;
-    protected boolean canRespawn = false;
-    protected boolean newSpeedOnRespawn = false;
-    protected boolean isSpecialPic = false;
-    protected int maxPosXLeft;
-    protected int maxPosXRight;
- 
     /***** CONSTRUCTOR *****/
  
     /**
@@ -44,14 +45,9 @@ private abstract class Image {
         println(_source);
         println(imageFile.exists());
         if (!imageFile.exists()) {
-            throw new GameException("Image :: Image with path '" + _source + "' does not exist."); //<>// //<>// //<>// //<>//
+            throw new GameException("Image :: Image with path '" + _source + "' does not exist."); //<>// //<>//
         }
         */
-        
-        picture = loadImage(_source);
-        picture.resize(picture.width / RATION_WIDTH, picture.height / RATION_HEIGHT);
-        
-        initMaxPosX();
     }
     
     /*
@@ -62,25 +58,40 @@ private abstract class Image {
         _name = copy._name;
         _source = copy._source;
         _modeId = copy._modeId;
+        _colorId = copy._colorId;
         _speed = copy._speed;
-        picture = copy.picture;
-        colorTint = copy.colorTint;
-        movement = new Movement(copy.movement);
-        canDraw = copy.canDraw;
-        canRespawn = copy.canRespawn;
-        newSpeedOnRespawn = copy.newSpeedOnRespawn;
-        maxPosXLeft = copy.maxPosXLeft;
-        maxPosXRight = copy.maxPosXRight;
+        _xPos = copy._xPos;
+        _yPos = copy._yPos;
     }
     
     /***** GETTER *****/
     
     public String _getName() {
-        return _name;    
+        return _name;
+    }
+    
+    public String _getSource() {
+        return _source;
+    }
+    
+    public int _getModeId() {
+        return _modeId;
+    }
+    
+    public int _getColorId() {
+        return _colorId;
     }
     
     public float _getSpeed() {
-        return _speed;    
+        return _speed;
+    }
+    
+    public int _getPosX() {
+        return _colorId;    
+    }
+    
+    public int _getPosY() {
+        return _colorId;
     }
     
     /***** METHOD *****/
@@ -96,7 +107,6 @@ private abstract class Image {
      * @since 1.0.0
      */
     private void getImageByName(String imageName) throws GameException {
-        int colorId = -1;
         SQLite dbConnect = null;
         try {
             dbConnect = database.getInstance().getDbConnection();
@@ -117,49 +127,14 @@ private abstract class Image {
             _name = dbConnect.getString("name");
             _source = dbConnect.getString("source");
             _modeId = dbConnect.getInt("modeId");
+            _colorId = dbConnect.getInt("colorId");
             _speed = dbConnect.getInt("speed");
-            colorId = dbConnect.getInt("colorId");
-            movement = new Movement(
-                dbConnect.getInt("speed"), 
-                dbConnect.getInt("xPos"), dbConnect.getInt("yPos")
-            );
+            _xPos = dbConnect.getInt("xPos");
+            _yPos = dbConnect.getInt("yPos");
         }
-        if (-1 == _id || -1 == colorId) {
+        if (-1 == _id || -1 == _colorId) {
             throw new GameException("Image :: Image named '" + imageName + "' not initialize properly.");
         }
-        colorTint = new Color(colorId);
-    }
-    
-    /**
-     * Initialize the coordonate max on the horizontal axis where an action will be triggered.
-     *
-     * @version 1.0.0
-     * @since 1.0.0
-     */
-    private void initMaxPosX() {
-         maxPosXLeft = MAX_POS_X_LEFT - picture.width;
-         maxPosXRight = MAX_POS_X_RIGHT + picture.width;
-    }
-    
-    /**
-     * <p>Draw method.</p>
-     *
-     * @version 1.0.0
-     * @since 1.0.0
-     */
-    public void draw() {
-        tint(colorTint.getRed(), colorTint.getGreen(), colorTint.getBlue(), colorTint.getAlpha());
-        switch(_modeId) {
-            case MODE_CORNER:
-                imageMode(CORNER);
-                break;
-            case MODE_CENTER:
-                imageMode(CENTER);
-                break;
-        }
-        image(picture, movement.coord.getX(), movement.coord.getY());
-        // Reset tint for other elements to draw properly
-        tint(255);
     }
     
 }
